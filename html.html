@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <title>
+      Encoder/Decoder
+    </title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-18 col-md-12">
+                <h1 align="center">Encoder and Decoder</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-md-2">
+                <div id="left-sidebar">
+                  <p>Type your statement and get it encoded</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <div id="question-area" data-spy="affix" data-offset-top="60">
+                <input type="text" id="input" value=""><button onclick="askAQuestion()" type="button" id="talkButton" class="btn-talk">Talk</button>
+              </div>
+                <div id="text-area">
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-2">
+                  <div id="right-sidebar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascript.js"></script>
+</body>
+</html>
