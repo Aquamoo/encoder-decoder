@@ -24,40 +24,42 @@ document.getElementById("text-area").innerHTML += input + ": " + fallbackAnswer 
 
 //different combos for Caesar cipher
 
-var responses = {
-  "a" : "b",
-  "b" : "c",
-  "c" : "d",
-  "d" : "e",
-  "e" : "f",
-  "f" : "g",
-  "g" : "h",
-  "h" : "i",
-  "i" : "j",
-  "j" : "k",
-  "k" : "l",
-  "l" : "m",
-  "m" : "n",
-  "n" : "o",
-  "o" : "p",
-  "p" : "q",
-  "q" : "r",
-  "r" : "s",
-  "s" : "t",
-  "t" : "u",
-  "u" : "v",
-  "v" : "w",
-  "w" : "x",
-  "x" : "y",
-  "y" : "z",
-  "z" : "a"
+var letters = {
+  "a" : "65",
+  "b" : "66",
+  "c" : "67",
+  "d" : "68",
+  "e" : "69",
+  "f" : "70",
+  "g" : "71",
+  "h" : "72",
+  "i" : "73",
+  "j" : "74",
+  "k" : "75",
+  "l" : "76",
+  "m" : "77",
+  "n" : "78",
+  "o" : "79",
+  "p" : "80",
+  "q" : "81",
+  "r" : "82",
+  "s" : "83",
+  "t" : "84",
+  "u" : "85",
+  "v" : "86",
+  "w" : "87",
+  "x" : "88",
+  "y" : "89",
+  "z" : "90"
 }
 
-$(document).keydown(function(e) {
- if (e.keyCode == 13) {
-askAQuestion();
- }
-});
+$("#text-area").append(letters[e.keyCode-1])
+
+//$(document).keydown(function(e) {
+//if (e.keyCode == 13) {
+//askAQuestion();
+//}
+//});
 
 //picture alphabet
 
