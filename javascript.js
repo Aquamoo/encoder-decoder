@@ -1,68 +1,93 @@
-function askAQuestion() {
-  var input = document.getElementById("input").value;
-  input = input.toLowerCase()
-  var giveresponse = responses[input]
-
-var fallback = ["sorry I don't understand ", "try again ", "are you sure about that", "me no hablo espanol"];
-
-
-//code from my chatbot project
-//copied from myself
-
-  if (giveresponse == undefined) {
-var rand = Math.floor((Math.random() * fallback.length));
-var fallbackAnswer = fallback[rand];
-document.getElementById("text-area").innerHTML += input + ": " + fallbackAnswer + " " + "<br/> <br/>"
+//the converter to english
+var CaesarCipherToEnglish = {
+  "A":"z",
+  "B":"a",
+  "C":"b",
+  "D":"c",
+  "E":"d",
+  "F":"e",
+  "G":"f",
+  "H":"g",
+  "I":"h",
+  "J":"i",
+  "K":"j",
+  "L":"k",
+  "M":"l",
+  "N":"m",
+  "O":"n",
+  "P":"o",
+  "Q":"p",
+  "R":"q",
+  "S":"r",
+  "T":"s",
+  "U":"t",
+  "V":"u",
+  "W":"v",
+  "X":"w",
+  "Y":"x",
+  "Z":"y"
 }
+//Caesar cipher converter from english
+var CaesarCipher = {
+  "A":"b",
+  "B":"c",
+  "C":"d",
+  "D":"e",
+  "E":"f",
+  "F":"g",
+  "G":"h",
+  "H":"i",
+  "I":"j",
+  "J":"k",
+  "K":"l",
+  "L":"m",
+  "M":"n",
+  "N":"o",
+  "O":"p",
+  "P":"q",
+  "Q":"r",
+  "R":"s",
+  "S":"t",
+  "T":"u",
+  "U":"v",
+  "V":"w",
+  "W":"x",
+  "X":"y",
+  "Y":"z",
+  "Z":"a"
+}
+/*event Handlers
+this area i had help from max. he helped me learn how to do the functions, and
+he helped me put it in order
+*/
+$("input[type='radio']").click(function() {
+$("input:checked").prop('checked',false);
+$(this).prop('checked',true);
 
-  else {
+$("#inputText").val("");
+$("#textArea").text("");
+      });
 
-
-  document.getElementById("text-area").innerHTML += input + ": " + giveresponse + " ";
+$("#inputArea").keydown(function(){
+  if($("input:checked").val() == "echo"){
+         $("#textArea").append(String.fromCharCode(event.which));
+}
+//puts the caesar cipher
+else if($("input:checked").val() == "Caesar cipher"){
+//message that will be split and encoded
+var MessageToEncode = String.fromCharCode(event.which);
+var Encoding = MessageToEncode.split('');
+MessageToEncode = CaesarCipher[Encoding[0]];
+         $("#textArea").append( MessageToEncode );
   }
-}
-
-//different combos for Caesar cipher
-
-var letters = {
-  "a" : "65",
-  "b" : "66",
-  "c" : "67",
-  "d" : "68",
-  "e" : "69",
-  "f" : "70",
-  "g" : "71",
-  "h" : "72",
-  "i" : "73",
-  "j" : "74",
-  "k" : "75",
-  "l" : "76",
-  "m" : "77",
-  "n" : "78",
-  "o" : "79",
-  "p" : "80",
-  "q" : "81",
-  "r" : "82",
-  "s" : "83",
-  "t" : "84",
-  "u" : "85",
-  "v" : "86",
-  "w" : "87",
-  "x" : "88",
-  "y" : "89",
-  "z" : "90"
-}
-
-$("#text-area").append(letters[e.keyCode-1])
-
-//$(document).keydown(function(e) {
-//if (e.keyCode == 13) {
-//askAQuestion();
-//}
-//});
-
-//picture alphabet
-
-$("button").click(function(){
-    $("p").append("<b>Appended text</b>");
+  else{
+    console.log("error has occured");
+  }
+});
+//decodes from the caesar cipher to english
+$("#translationInputArea").keydown(function(){
+  var MessageToEncode = String.fromCharCode(event.which);
+  var Encoding = MessageToEncode.split('');
+  MessageToEncode = CaesarCipherToEnglish[Encoding[0]];
+           $("#translationArea").append( MessageToEncode );
 });

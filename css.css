@@ -1,3 +1,6 @@
 body {
-    background-color: black;
+    background-image: url(http://www.animateit.net/data/media/smiley712/126fs422682.gif);
+    background-repeat: repeat-y;
+    background-position: center;
+    background-size: 500px 500px;
 }
